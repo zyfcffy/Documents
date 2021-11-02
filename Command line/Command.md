@@ -1,3 +1,13 @@
+### xjc
+
+xjc ==> Compiles an XML schema file into fully annotated Java classes.
+
+```shell
+xjc -d [target directory]  [source xsd path]
+```
+
+
+
 ### confluent kafka
 
 ```shell
