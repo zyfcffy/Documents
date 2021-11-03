@@ -37,3 +37,19 @@ kafka-console-consumer --topic lvc-product-transfer-dev --from-beginning --max-m
 
 
 
+### mongodb
+
+```shell
+# deleteall
+db['name'].remove({})
+db.getCollection("name").deleteMany({"field":"value"})
+
+# find
+db.getCollection("name").find({"field":"value"})
+	# regex
+	{"field":{$regex : ".*xxxx*"}}
+	# orderby
+	{$query:{}, $orderby:{"field":-1}} # -1:descend 1:ascend
+
+```
+
