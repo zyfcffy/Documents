@@ -29,6 +29,13 @@ kafka-console-producer --topic lvc-product-transfer-dev --bootstrap-server local
 # run consumer to read messages
 # kafka-console-consumer --topic {topic_name} --from-beginning --bootstrap-server localhost:9092
 kafka-console-consumer --topic lvc-product-transfer-dev --from-beginning --max-messages 2 --bootstrap-server localhost:9092
+
+# print key
+kafka-console-consumer --topic lvc-product-transfer-dev --from-beginning --max-messages 2 --bootstrap-server localhost:9092 --property print.key=true
+
+# use config
+kafka-console-consumer --bootstrap-server pkc-lgwgm.eastus2.azure.confluent.cloud:9092 --topic lvc-product-transfer-dev --consumer.config config/ptds-dev-credential.properties --from
+-beginning --max-messages 2 --property print.key=true
 ```
 
 > https://docs.confluent.io/platform/current/kafka/kafka-basics.html
