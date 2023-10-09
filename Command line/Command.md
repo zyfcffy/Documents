@@ -24,7 +24,7 @@ kafka-topics --list --bootstrap-server localhost:29092
 kafka-topics --create --topic {topic_name} --bootstrap-server localhost:29092
 
 # delete topic
-kafka-topics --delete --topic user --bootstrap-server localhost:29092
+kafka-topics --delete --topic mvtds-sap-nom-key-local --bootstrap-server localhost:9092
 
 # run producer to send messages
 # kafka-console-producer --topic {topic_name} --bootstrap-server localhost:29092
@@ -77,6 +77,17 @@ db.getCollection("name").find({"field":"value"})
 
 ```shell
 kubectl get all -n movement-dev
+# get pod
+kubectl get pods -n movement-dev
+# exec pod
+kubectl exec -n movement-dev -it mvtds-api-service-5ccb9d68cc-lk9wd -- bash
+# log
+kubectl logs mvtds-api-service-5ccb9d68cc-5zpn4 -n movement-dev
+# describe pod
+kubectl describe pods mvtds-api-service-5ccb9d68cc-lk9wd -n movement-dev
+# describe ingress
+kubectl describe ingress ingress-movement-dev -n movement-dev
+
 ```
 
 
@@ -100,5 +111,22 @@ az aks get-upgrades --resource-group rg-lcds-nonprod --name aks-lcds-nonprod --o
 az login
 az account set --subscription efede11f-18f5-4297-ac13-1e4582c232ff
 az aks get-credentials --resource-group rg-ptds-nonprod --name aks-ptds-nonprod --admin
+
+az aks get-credentials --resource-group Rg-Enablement-App-USSC-NonProd --name shared-aks-nonprod
+```
+
+### Helm
+
+```shell
+helm rollback mvtds-transformer-service --namespace movement-dev
+
+kubectl describe pod/mvtds-transformer-service-97685fdb7-jrxpz -n movement-dev
+
+```
+
+### GIT
+
+```
+git remote set-url origin https://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@github.com/ExxonMobil/mvtds-transformer-service.git
 ```
 
