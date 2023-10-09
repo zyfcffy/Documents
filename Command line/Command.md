@@ -127,6 +127,6 @@ kubectl describe pod/mvtds-transformer-service-97685fdb7-jrxpz -n movement-dev
 ### GIT
 
 ```
-git remote set-url origin https://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@github.com/ExxonMobil/mvtds-transformer-service.git
+git remote set-url origin https://ghp_xxxxx@github.com/ExxonMobil/mvtds-transformer-service.git
 ```
 
